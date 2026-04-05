@@ -33,7 +33,7 @@ The first step in this process is to familiarize yourself with the Steamworks pl
 
 So a great place to start is their [Getting Started](https://partner.steamgames.com/doc/gettingstarted) article. Reading it will be a bit confusing -- there's **a lot** of information -- but it's good to get familiarized with the terms and the process. I'll cover all the steps and try to give as much context, tips and advice as possible for each one.
 
-![Steamworks Getting Started page](https://pds.yfrit.social/xrpc/com.atproto.sync.getBlob?did=did%3Aplc%3Ao4ij6lejsxv53xlov7rchhoq&cid=bafkreied3mv4izznqwgmctfgux3rlm5htlpxwbul765l6w7zvcqfatrnvm)
+![Steamworks Getting Started page](/img/steamworks-getting-started.png)
 
 ## 2. Setting Up a Steamworks Account
 
