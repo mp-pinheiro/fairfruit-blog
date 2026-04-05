@@ -1,0 +1,17 @@
+{
+  "$schema": "https://tangled.org/stevedylan.dev/sequoia/raw/main/sequoia.schema.json",
+  "siteUrl": "https://blog.fairfruit.tv",
+  "contentDir": "src/content/blog",
+  "pathPrefix": "/blog",
+  "pdsUrl": "https://pds.yfrit.social",
+  "publicationUri": "at://did:plc:o4ij6lejsxv53xlov7rchhoq/site.standard.publication/3mipubkhxip2y",
+  "identity": "fairfruit.tv",
+  "publishContent": true,
+  "frontmatter": {
+    "title": "title",
+    "description": "description",
+    "publishDate": "publishDate",
+    "tags": "tags",
+    "draft": "draft"
+  }
+}

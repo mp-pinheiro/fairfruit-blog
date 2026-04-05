@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<Base title="Fairfruit's Blog">
+	<ul class="post-list">
+		{posts.map((post) => {
+			const formattedDate = post.data.publishDate.toLocaleDateString('en-US', {
+				year: 'numeric',
+				month: 'short',
+				day: 'numeric',
+			});
+			return (
+				<li>
+					<a href={`/blog/${post.id}/`} class="post-card">
+						<time datetime={post.data.publishDate.toISOString()}>{formattedDate}</time>
+						<h2>{post.data.title}</h2>
+						<p>{post.data.description}</p>
+						{post.data.tags.length > 0 && (
+							<div class="tags">
+								{post.data.tags.map((tag) => (
+									<span class="tag">{tag}</span>
+								))}
+							</div>
+						)}
+					</a>
+				</li>
+			);
+		})}
+	</ul>
+</Base>
+
+<style>
+	.post-list {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.post-card {
+		display: block;
+		padding: 1.25rem 1.5rem;
+		background: var(--color-tertiary);
+		border: 1px solid var(--color-secondary);
+		border-radius: 10px;
+		box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+		transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		color: var(--color-quinary);
+	}
+
+	.post-card:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+		text-decoration: none;
+	}
+
+	.post-card time {
+		font-size: 0.85rem;
+		opacity: 0.7;
+	}
+
+	.post-card h2 {
+		font-size: 1.3rem;
+		margin: 0.25rem 0 0.5rem;
+	}
+
+	.post-card p {
+		font-size: 0.95rem;
+		opacity: 0.85;
+		margin: 0;
+	}
+
+	.tags {
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+		margin-top: 0.75rem;
+	}
+
+	.tag {
+		background: var(--color-secondary);
+		padding: 2px 10px;
+		border-radius: 12px;
+		font-size: 0.75rem;
+	}
+</style>
